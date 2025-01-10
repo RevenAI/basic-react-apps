@@ -1,43 +1,49 @@
-import { useState } from 'react';
-import { useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import Header from './Header';
 import Footer from './Footer';
 import Content from './Content';
-import Data from './Data';
 import AddProduct from './AddProduct';
 import SearchProduct from './SearchProduct';
-//import Counter from './Counter';
 
 function App() {
- const [products, setProduct] = useState(() =>{ 
-    const savedProducts = localStorage.getItem('sales-products');
+  const API_URL = 'http://localhost:5000/Products';
 
-    if (savedProducts) {
-      return JSON.parse(savedProducts);
-    } else {
-     return Data
-    }
-  });
+ const [products, setProducts] = useState([]);
 
   const [newProduct, setNewProduct] = useState('');
   const [search, setSearch] = useState('');
   const inputRef = useRef();
+  const [fetchError, setFetchError] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
-  
-
-  const updateLocalStorage = (updatedData) => {
-    setProduct(updatedData);
-    localStorage.setItem('sales-products', JSON.stringify(updatedData));
-  }
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await fetch(API_URL);
+        if (!response.ok) throw new Error('Error: Something went wrong while fetching products');
+        const fetchedProducts = await response.json();
+        setProducts(fetchedProducts)
+        setFetchError(null);
+      } catch (err) {
+        setFetchError(err.message);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+    
+    setTimeout(() => {
+      (async () => await fetchProducts())();
+    }, 2000);
+  }, []);
 
   const handleCheck = (productID) => {
     const productsList = products.map((product) => product.id === productID ? { ...product, checked: !product.checked } : product);
-    updateLocalStorage(productsList);
+    setProducts(productsList);
   }
 
   const handleDelete = (productID) => {
     const productsList = products.filter((product) => product.id !== productID);
-    updateLocalStorage(productsList);
+    setProducts(productsList);
   }
 
   const textStyle = (checked) => (checked ? { textDecoration: 'line-through' } : {});
@@ -46,7 +52,7 @@ function App() {
     const id = products.length ? products[products.length -1].id +1 : 1;
     const addedProduct = { id, checked: false, product };
     const productsList = [...products, addedProduct];
-    updateLocalStorage(productsList);
+    setProducts(productsList);
   }
 
   const handleSubmit = (e) => {
@@ -58,30 +64,39 @@ function App() {
 
   return (
     <div className='App'>
+
       <Header 
       title='Product Cart'
       />
+
       <AddProduct 
       newProduct={ newProduct }
       setNewProduct={ setNewProduct }
       handleSubmit={ handleSubmit }
       inputRef={ inputRef }
       />
+
       <SearchProduct 
       search={ search }
       setSearch={ setSearch }
       />
-      <Content 
-      products={ products.filter(product => ((product.product).toLowerCase()).includes(search.toLocaleLowerCase())) }
-      handleCheck={ handleCheck }
-      handleDelete={ handleDelete }
-      textStyle={ textStyle }
-      />
 
-      <Footer
-      productCount={ `${products.length } ${ products.length <= 1 ? 'product' : 'products' } left in cart` }
-      />
-       {/* <Counter /> */}
+      <main>
+        { isLoading && <p style={{ color: 'green', textAlign: 'center', fontSize: '15px' }}>Loading Products...</p> }
+        { fetchError && <p style={{ color: 'red', textAlign: 'center', fontSize: '15px' }}>'Error: Something went wrong while fetching products'</p> }
+      { !fetchError && !isLoading && 
+        <Content 
+        products={ products.filter(product => ((product.product).toLowerCase()).includes(search.toLocaleLowerCase())) }
+        handleCheck={ handleCheck }
+        handleDelete={ handleDelete }
+        textStyle={ textStyle }
+        /> 
+      }
+      </main>
+
+        <Footer
+        productCount={ `${products.length } ${ products.length <= 1 ? 'product' : 'products' } left in cart` }
+        />
     </div>
   );
 }

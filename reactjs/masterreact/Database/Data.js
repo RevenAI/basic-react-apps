@@ -15,3 +15,5 @@ const Data = [
 
 export default Data
 
+//starting the json server
+//npx json-server -p 5000 -w Database/data.json
