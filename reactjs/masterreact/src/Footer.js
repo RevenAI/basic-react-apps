@@ -17,3 +17,5 @@ const Footer = ({ productCount }) => {
 }
 
 export default Footer
+
+

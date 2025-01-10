@@ -1,30 +1,29 @@
 import { useState } from 'react';
+import { useRef } from 'react';
 import Header from './Header';
 import Footer from './Footer';
 import Content from './Content';
+import Data from './Data';
+import AddProduct from './AddProduct';
+import SearchProduct from './SearchProduct';
 //import Counter from './Counter';
 
 function App() {
-  const [products, setProduct] = useState(() =>{ 
+ const [products, setProduct] = useState(() =>{ 
     const savedProducts = localStorage.getItem('sales-products');
 
     if (savedProducts) {
       return JSON.parse(savedProducts);
     } else {
-     return [
-        { id: 1, checked: false, name: 'Red Apple' },
-        { id: 2, checked: true, name: 'Blue Notebook' },
-        { id: 3, checked: false, name: 'Green Bottle' },
-        { id: 4, checked: true, name: 'Yellow Backpack' },
-        { id: 5, checked: false, name: 'Orange Mug' },
-        { id: 6, checked: true, name: 'Purple Scarf' },
-        { id: 7, checked: false, name: 'Black Chair' },
-        { id: 8, checked: true, name: 'White Table' },
-        { id: 9, checked: false, name: 'Gray Couch' },
-        { id: 10, checked: false, name: 'Samsumg Laptop' },
-      ]
+     return Data
     }
   });
+
+  const [newProduct, setNewProduct] = useState('');
+  const [search, setSearch] = useState('');
+  const inputRef = useRef();
+
+  
 
   const updateLocalStorage = (updatedData) => {
     setProduct(updatedData);
@@ -43,22 +42,44 @@ function App() {
 
   const textStyle = (checked) => (checked ? { textDecoration: 'line-through' } : {});
 
- 
+  const addNewProduct = (product) => {
+    const id = products.length ? products[products.length -1].id +1 : 1;
+    const addedProduct = { id, checked: false, product };
+    const productsList = [...products, addedProduct];
+    updateLocalStorage(productsList);
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!newProduct) return;
+    addNewProduct(newProduct);
+    setNewProduct('');
+  }
+
   return (
     <div className='App'>
       <Header 
       title='Product Cart'
       />
-
+      <AddProduct 
+      newProduct={ newProduct }
+      setNewProduct={ setNewProduct }
+      handleSubmit={ handleSubmit }
+      inputRef={ inputRef }
+      />
+      <SearchProduct 
+      search={ search }
+      setSearch={ setSearch }
+      />
       <Content 
-      products={ products }
+      products={ products.filter(product => ((product.product).toLowerCase()).includes(search.toLocaleLowerCase())) }
       handleCheck={ handleCheck }
       handleDelete={ handleDelete }
       textStyle={ textStyle }
       />
 
       <Footer
-      productCount={ `${products.length } ${ products.length === 1 ? 'product' : 'products' } left in cart` }
+      productCount={ `${products.length } ${ products.length <= 1 ? 'product' : 'products' } left in cart` }
       />
        {/* <Counter /> */}
     </div>

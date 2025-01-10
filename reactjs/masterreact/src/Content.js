@@ -10,9 +10,10 @@ const Content = ({ products, handleCheck, handleDelete, textStyle }) => {
        handleDelete={ handleDelete }
        textStyle={ textStyle }
       />
-      { products.length === 0 && <h4>Your prodcuts cart is empty.</h4> }
+      { products.length === 0 && <h4>Your product cart is empty.</h4> }
     </main>
   )
 }
 
 export default Content
+
