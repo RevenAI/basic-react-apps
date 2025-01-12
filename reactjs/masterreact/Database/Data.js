@@ -17,3 +17,4 @@ export default Data
 
 //starting the json server
 //npx json-server -p 5000 -w Database/data.json
+//npx json-server -p 3500 -w Database/data.json

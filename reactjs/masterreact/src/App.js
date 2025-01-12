@@ -4,12 +4,12 @@ import Footer from './Footer';
 import Content from './Content';
 import AddProduct from './AddProduct';
 import SearchProduct from './SearchProduct';
+import apiRequest from './apiRequest';
 
 function App() {
-  const API_URL = 'http://localhost:5000/Products';
+  const API_URL = 'http://localhost:5000/products';
 
- const [products, setProducts] = useState([]);
-
+  const [products, setProducts] = useState([]);
   const [newProduct, setNewProduct] = useState('');
   const [search, setSearch] = useState('');
   const inputRef = useRef();
@@ -22,7 +22,7 @@ function App() {
         const response = await fetch(API_URL);
         if (!response.ok) throw new Error('Error: Something went wrong while fetching products');
         const fetchedProducts = await response.json();
-        setProducts(fetchedProducts)
+        setProducts(fetchedProducts);
         setFetchError(null);
       } catch (err) {
         setFetchError(err.message);
@@ -36,23 +36,21 @@ function App() {
     }, 2000);
   }, []);
 
-  const handleCheck = (productID) => {
-    const productsList = products.map((product) => product.id === productID ? { ...product, checked: !product.checked } : product);
-    setProducts(productsList);
-  }
-
-  const handleDelete = (productID) => {
-    const productsList = products.filter((product) => product.id !== productID);
-    setProducts(productsList);
-  }
-
-  const textStyle = (checked) => (checked ? { textDecoration: 'line-through' } : {});
-
-  const addNewProduct = (product) => {
-    const id = products.length ? products[products.length -1].id +1 : 1;
+  const addNewProduct = async (product) => {
+    const id = products.length ? (parseInt(products[products.length -1].id, 10) + 1).toString() : '1';
     const addedProduct = { id, checked: false, product };
     const productsList = [...products, addedProduct];
     setProducts(productsList);
+
+    const createdOptions = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(addedProduct),
+    }
+    const result = await apiRequest(API_URL, createdOptions);
+    if (result) setFetchError(result);
   }
 
   const handleSubmit = (e) => {
@@ -61,6 +59,39 @@ function App() {
     addNewProduct(newProduct);
     setNewProduct('');
   }
+
+  const handleCheck = async (productID) => {
+    const productsList = products.map((product) => product.id === productID ? { ...product, checked: !product.checked } : product);
+    setProducts(productsList);
+
+    const updatedProduct = productsList.find((prod) => prod.id === productID);
+
+    const updatedOptions = {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ checked: updatedProduct.checked })
+    }
+
+    const prodToUpdateURL = `${ API_URL }/${ productID }`
+
+    const result = await apiRequest(prodToUpdateURL, updatedOptions);
+    if (result) setFetchError(result);
+  }
+
+  const handleDelete = async (productID) => {
+    const productsList = products.filter((product) => product.id !== productID);
+    setProducts(productsList);
+
+    const deletedOptions = { method: 'DELETE' };
+    const prodToDeleteURL = `${ API_URL }/${ productID }`
+    const result = await apiRequest(prodToDeleteURL, deletedOptions);
+    if (result) setFetchError(result);
+    
+  }
+
+  const textStyle = (checked) => (checked ? { textDecoration: 'line-through' } : {});
 
   return (
     <div className='App'>
