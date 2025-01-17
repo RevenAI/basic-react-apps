@@ -1,0 +1,147 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 22px;
+}
+
+body {
+  min-height: 100vh;
+  font-family: 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; 
+  width: 100%; 
+  max-width: 500px;
+  border: 1px solid mediumblue;
+  margin: auto;
+}
+ 
+header {
+  width: 100%;
+  padding: 0 0.25em;
+  background-color: rgb(205, 133, 0);
+  color: aliceblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: '1.5px solid red';
+}
+
+main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: flex-start;
+  align-items: center;
+  overflow-y: auto;
+}
+
+footer {
+  width: 100%;
+  padding: 0.25em;
+  background-color: mediumblue;
+  color: aliceblue;
+  display: grid;
+  place-content: center;
+}
+
+/* button styling */
+button {
+  padding: 10px 20px;
+  border: 1px solid #ddd;
+  background-color: #f8f9fa;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+button:hover {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.userButton {
+  border-radius: 5px 0 0 5px;
+}
+
+.postButton {
+  border-left: none;
+}
+
+.commentButton {
+  border-left: none;
+  border-radius: 0 5px 5px 0;
+}
+
+button + button {
+  margin-left: -1px; /* Prevent double borders between buttons */
+}
+
+button:focus {
+  outline: none;
+  box-shadow: 0 0 3px rgba(0, 123, 255, 0.5);
+}
+
+.container {
+  display: flex;
+  justify-content: flex-start;
+  margin: 20px 0;
+}
+
+/* styling for user list */
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin: 10px 0;
+  padding: 15px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+li:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+li p {
+  margin: 5px 0;
+  font-size: 16px;
+  color: #333;
+}
+
+li p strong {
+  font-weight: bold;
+  color: #007BFF;
+}
+
+@media (max-width: 600px) {
+  li {
+    padding: 10px;
+  }
+
+  li p {
+    font-size: 14px;
+  }
+}
+

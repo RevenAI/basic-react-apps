@@ -1,0 +1,125 @@
+{
+    "posts": [
+        {
+          "id": 1,
+          "userId": 1,
+          "title": "The Joy of Learning",
+          "body": "Learning is a journey that never ends. Embrace it daily."
+        },
+        {
+          "id": 2,
+          "userId": 2,
+          "title": "Healthy Eating Habits",
+          "body": "A balanced diet is essential for a productive lifestyle."
+        },
+        {
+          "id": 3,
+          "userId": 3,
+          "title": "Morning Routines",
+          "body": "Starting your day early sets the tone for success."
+        },
+        {
+          "id": 4,
+          "userId": 4,
+          "title": "The Power of Gratitude",
+          "body": "Gratitude turns what we have into enough."
+        },
+        {
+          "id": 5,
+          "userId": 5,
+          "title": "Overcoming Challenges",
+          "body": "Every challenge is an opportunity to grow stronger."
+        },
+        {
+          "id": 6,
+          "userId": 6,
+          "title": "Time Management Tips",
+          "body": "Prioritize tasks to make the most of your time."
+        },
+        {
+          "id": 7,
+          "userId": 7,
+          "title": "Building Good Relationships",
+          "body": "Healthy relationships require trust and communication."
+        },
+        {
+          "id": 8,
+          "userId": 8,
+          "title": "The Importance of Rest",
+          "body": "Rest is essential for both mental and physical health."
+        },
+        {
+          "id": 9,
+          "userId": 9,
+          "title": "Staying Positive",
+          "body": "A positive mindset helps you overcome difficulties."
+        },
+        {
+          "id": 10,
+          "userId": 10,
+          "title": "Personal Finance Basics",
+          "body": "Save before you spend and track your expenses."
+        },
+        {
+          "id": 11,
+          "userId": 11,
+          "title": "The Beauty of Nature",
+          "body": "Take a moment to enjoy the simple beauty around you."
+        },
+        {
+          "id": 12,
+          "userId": 12,
+          "title": "Effective Communication",
+          "body": "Listen more than you speak to build better connections."
+        },
+        {
+          "id": 13,
+          "userId": 13,
+          "title": "Staying Active",
+          "body": "Regular exercise keeps your body and mind healthy."
+        },
+        {
+          "id": 14,
+          "userId": 14,
+          "title": "The Value of Reading",
+          "body": "Books are a window to new worlds and ideas."
+        },
+        {
+          "id": 15,
+          "userId": 15,
+          "title": "Creating a Budget",
+          "body": "Budgeting helps you achieve your financial goals."
+        },
+        {
+          "id": 16,
+          "userId": 16,
+          "title": "Developing New Skills",
+          "body": "Learn a skill today that can improve your tomorrow."
+        },
+        {
+          "id": 17,
+          "userId": 17,
+          "title": "The Impact of Music",
+          "body": "Music has the power to uplift and inspire."
+        },
+        {
+          "id": 18,
+          "userId": 18,
+          "title": "Cooking Made Simple",
+          "body": "Simple recipes can create delicious and healthy meals."
+        },
+        {
+          "id": 19,
+          "userId": 19,
+          "title": "Travel on a Budget",
+          "body": "Explore the world without breaking the bank."
+        },
+        {
+          "id": 20,
+          "userId": 20,
+          "title": "The Art of Mindfulness",
+          "body": "Being present in the moment reduces stress and boosts happiness."
+        }
+      ]
+      
+}

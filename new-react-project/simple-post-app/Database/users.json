@@ -1,0 +1,411 @@
+{
+    "users": [
+        {
+          "id": 1,
+          "name": "Chinedu Okafor",
+          "email": "chinedu.okafor@example.com",
+          "address": "15 Admiralty Way",
+          "city": "Lagos",
+          "zipcode": "100001"
+        },
+        {
+          "id": 2,
+          "name": "Aisha Abubakar",
+          "email": "aisha.abubakar@example.com",
+          "address": "32 Sultan Road",
+          "city": "Kano",
+          "zipcode": "700213"
+        },
+        {
+          "id": 3,
+          "name": "Emeka Eze",
+          "email": "emeka.eze@example.com",
+          "address": "18 Zik Avenue",
+          "city": "Enugu",
+          "zipcode": "400001"
+        },
+        {
+          "id": 4,
+          "name": "Fatima Suleiman",
+          "email": "fatima.suleiman@example.com",
+          "address": "21 Jos Road",
+          "city": "Kaduna",
+          "zipcode": "800283"
+        },
+        {
+          "id": 5,
+          "name": "Tolu Ajayi",
+          "email": "tolu.ajayi@example.com",
+          "address": "10 Alausa Street",
+          "city": "Ikeja",
+          "zipcode": "101233"
+        },
+        {
+          "id": 6,
+          "name": "Ifeanyi Nwosu",
+          "email": "ifeanyi.nwosu@example.com",
+          "address": "45 Upper New Market Road",
+          "city": "Onitsha",
+          "zipcode": "435101"
+        },
+        {
+          "id": 7,
+          "name": "Halima Mohammed",
+          "email": "halima.mohammed@example.com",
+          "address": "22 Ahmadu Bello Way",
+          "city": "Abuja",
+          "zipcode": "900211"
+        },
+        {
+          "id": 8,
+          "name": "Bolanle Akinola",
+          "email": "bolanle.akinola@example.com",
+          "address": "7 Marina Street",
+          "city": "Lagos",
+          "zipcode": "100001"
+        },
+        {
+          "id": 9,
+          "name": "Yusuf Adamu",
+          "email": "yusuf.adamu@example.com",
+          "address": "12 Bauchi Road",
+          "city": "Jos",
+          "zipcode": "930281"
+        },
+        {
+          "id": 10,
+          "name": "Ngozi Uche",
+          "email": "ngozi.uche@example.com",
+          "address": "19 Asa Road",
+          "city": "Aba",
+          "zipcode": "450231"
+        },
+        {
+          "id": 11,
+          "name": "Samuel Etuk",
+          "email": "samuel.etuk@example.com",
+          "address": "8 Oron Road",
+          "city": "Uyo",
+          "zipcode": "520102"
+        },
+        {
+          "id": 12,
+          "name": "Funke Balogun",
+          "email": "funke.balogun@example.com",
+          "address": "24 Ado Bayero Crescent",
+          "city": "Ibadan",
+          "zipcode": "200252"
+        },
+        {
+          "id": 13,
+          "name": "Bashir Lawal",
+          "email": "bashir.lawal@example.com",
+          "address": "17 Emir Road",
+          "city": "Zaria",
+          "zipcode": "810283"
+        },
+        {
+          "id": 14,
+          "name": "Adaobi Chukwu",
+          "email": "adaobi.chukwu@example.com",
+          "address": "16 Oguta Road",
+          "city": "Owerri",
+          "zipcode": "460271"
+        },
+        {
+          "id": 15,
+          "name": "Kehinde Oladipo",
+          "email": "kehinde.oladipo@example.com",
+          "address": "5 Ring Road",
+          "city": "Benin City",
+          "zipcode": "300241"
+        },
+        {
+          "id": 16,
+          "name": "Rasheedat Olawale",
+          "email": "rasheedat.olawale@example.com",
+          "address": "13 Oyo Road",
+          "city": "Ilorin",
+          "zipcode": "240102"
+        },
+        {
+          "id": 17,
+          "name": "Chika Onyekwere",
+          "email": "chika.onyekwere@example.com",
+          "address": "9 Aba-Owerri Road",
+          "city": "Aba",
+          "zipcode": "450231"
+        },
+        {
+          "id": 18,
+          "name": "Ahmed Bello",
+          "email": "ahmed.bello@example.com",
+          "address": "30 Sokoto Road",
+          "city": "Sokoto",
+          "zipcode": "840242"
+        },
+        {
+          "id": 19,
+          "name": "Oluwadamilola Adebayo",
+          "email": "oluwadamilola.adebayo@example.com",
+          "address": "28 Challenge Road",
+          "city": "Ibadan",
+          "zipcode": "200252"
+        },
+        {
+          "id": 20,
+          "name": "Ejiro Efe",
+          "email": "ejiro.efe@example.com",
+          "address": "6 Warri-Sapele Road",
+          "city": "Warri",
+          "zipcode": "332213"
+        }
+      ],
+
+      "posts": [
+        {
+          "id": 1,
+          "userId": 1,
+          "title": "The Joy of Learning",
+          "body": "Learning is a journey that never ends. Embrace it daily."
+        },
+        {
+          "id": 2,
+          "userId": 2,
+          "title": "Healthy Eating Habits",
+          "body": "A balanced diet is essential for a productive lifestyle."
+        },
+        {
+          "id": 3,
+          "userId": 3,
+          "title": "Morning Routines",
+          "body": "Starting your day early sets the tone for success."
+        },
+        {
+          "id": 4,
+          "userId": 4,
+          "title": "The Power of Gratitude",
+          "body": "Gratitude turns what we have into enough."
+        },
+        {
+          "id": 5,
+          "userId": 5,
+          "title": "Overcoming Challenges",
+          "body": "Every challenge is an opportunity to grow stronger."
+        },
+        {
+          "id": 6,
+          "userId": 6,
+          "title": "Time Management Tips",
+          "body": "Prioritize tasks to make the most of your time."
+        },
+        {
+          "id": 7,
+          "userId": 7,
+          "title": "Building Good Relationships",
+          "body": "Healthy relationships require trust and communication."
+        },
+        {
+          "id": 8,
+          "userId": 8,
+          "title": "The Importance of Rest",
+          "body": "Rest is essential for both mental and physical health."
+        },
+        {
+          "id": 9,
+          "userId": 9,
+          "title": "Staying Positive",
+          "body": "A positive mindset helps you overcome difficulties."
+        },
+        {
+          "id": 10,
+          "userId": 10,
+          "title": "Personal Finance Basics",
+          "body": "Save before you spend and track your expenses."
+        },
+        {
+          "id": 11,
+          "userId": 11,
+          "title": "The Beauty of Nature",
+          "body": "Take a moment to enjoy the simple beauty around you."
+        },
+        {
+          "id": 12,
+          "userId": 12,
+          "title": "Effective Communication",
+          "body": "Listen more than you speak to build better connections."
+        },
+        {
+          "id": 13,
+          "userId": 13,
+          "title": "Staying Active",
+          "body": "Regular exercise keeps your body and mind healthy."
+        },
+        {
+          "id": 14,
+          "userId": 14,
+          "title": "The Value of Reading",
+          "body": "Books are a window to new worlds and ideas."
+        },
+        {
+          "id": 15,
+          "userId": 15,
+          "title": "Creating a Budget",
+          "body": "Budgeting helps you achieve your financial goals."
+        },
+        {
+          "id": 16,
+          "userId": 16,
+          "title": "Developing New Skills",
+          "body": "Learn a skill today that can improve your tomorrow."
+        },
+        {
+          "id": 17,
+          "userId": 17,
+          "title": "The Impact of Music",
+          "body": "Music has the power to uplift and inspire."
+        },
+        {
+          "id": 18,
+          "userId": 18,
+          "title": "Cooking Made Simple",
+          "body": "Simple recipes can create delicious and healthy meals."
+        },
+        {
+          "id": 19,
+          "userId": 19,
+          "title": "Travel on a Budget",
+          "body": "Explore the world without breaking the bank."
+        },
+        {
+          "id": 20,
+          "userId": 20,
+          "title": "The Art of Mindfulness",
+          "body": "Being present in the moment reduces stress and boosts happiness."
+        }
+      ],
+
+      "comments": [
+        {
+          "postId": 1,
+          "id": 1,
+          "name": "Adewale Okoro",
+          "body": "This is such an inspiring post. Thank you for sharing!"
+        },
+        {
+          "postId": 1,
+          "id": 2,
+          "name": "Ngozi Adebayo",
+          "body": "I completely agree, learning is indeed a continuous process."
+        },
+        {
+          "postId": 2,
+          "id": 3,
+          "name": "Ibrahim Yusuf",
+          "body": "Healthy eating really does make a difference in productivity."
+        },
+        {
+          "postId": 2,
+          "id": 4,
+          "name": "Chinaza Okonkwo",
+          "body": "This is a good reminder to focus on what we eat daily."
+        },
+        {
+          "postId": 3,
+          "id": 5,
+          "name": "Oluwakemi Adeyemi",
+          "body": "Morning routines help me feel more organized and ready for the day."
+        },
+        {
+          "postId": 3,
+          "id": 6,
+          "name": "Chukwuma Obi",
+          "body": "I love waking up early. It really changes everything!"
+        },
+        {
+          "postId": 4,
+          "id": 7,
+          "name": "Fatima Mohammed",
+          "body": "Gratitude is key to finding joy in everyday life."
+        },
+        {
+          "postId": 4,
+          "id": 8,
+          "name": "Daniel Eze",
+          "body": "This post really touched me. Gratitude is everything."
+        },
+        {
+          "postId": 5,
+          "id": 9,
+          "name": "Blessing Udo",
+          "body": "Challenges are truly opportunities in disguise. Thank you!"
+        },
+        {
+          "postId": 5,
+          "id": 10,
+          "name": "Abubakar Garba",
+          "body": "Overcoming obstacles makes us stronger and wiser."
+        },
+        {
+          "postId": 6,
+          "id": 11,
+          "name": "Tosin Akinola",
+          "body": "Time management has always been my weak spot. Great advice!"
+        },
+        {
+          "postId": 6,
+          "id": 12,
+          "name": "Emeka Nwankwo",
+          "body": "Learning to prioritize tasks has really helped me improve."
+        },
+        {
+          "postId": 7,
+          "id": 13,
+          "name": "Halima Ali",
+          "body": "Relationships thrive on good communication and trust. Well said!"
+        },
+        {
+          "postId": 7,
+          "id": 14,
+          "name": "Favour Igwe",
+          "body": "Thank you for this reminder. Relationships need effort."
+        },
+        {
+          "postId": 8,
+          "id": 15,
+          "name": "Seyi Ajayi",
+          "body": "I sometimes forget how important rest is. Thank you!"
+        },
+        {
+          "postId": 8,
+          "id": 16,
+          "name": "Adaobi Umeh",
+          "body": "Rest recharges the mind and body. A great post!"
+        },
+        {
+          "postId": 9,
+          "id": 17,
+          "name": "Ifeanyi Chukwu",
+          "body": "A positive mindset changes everything. Great content!"
+        },
+        {
+          "postId": 9,
+          "id": 18,
+          "name": "Maryam Bala",
+          "body": "Staying positive can be tough, but it's so rewarding."
+        },
+        {
+          "postId": 10,
+          "id": 19,
+          "name": "Obinna Okafor",
+          "body": "This is a good reminder to save and plan financially."
+        },
+        {
+          "postId": 10,
+          "id": 20,
+          "name": "Abimbola Akin",
+          "body": "Personal finance basics are so important yet often overlooked."
+        }
+      ] 
+      
+}
