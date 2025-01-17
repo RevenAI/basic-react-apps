@@ -1,1 +1,1 @@
-# This are simple codes project on react.js
+# This are simple code projects on react.js
