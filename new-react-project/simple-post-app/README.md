@@ -1,3 +1,5 @@
+#This simple react.js app utilizes "json server package" to create database for fake API request. To start the app in development, use "npx json-server -p 3500 -w Database/posts.json". You could use any port of your choice as well.  
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
