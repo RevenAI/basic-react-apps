@@ -1,8 +1,8 @@
 
-const Header = ({ title }) => {
+const Header = ({ title, settingsErrors }) => {
   return (
     <div className="Header">
-      <h1>{ title }</h1>
+      { settingsErrors ? `Error: ${ settingsErrors }` : <h1>{ title }</h1>}
     </div>
   )
 }

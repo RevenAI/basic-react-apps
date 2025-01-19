@@ -6,11 +6,12 @@ const NewPost = ({
             postBody,
             setPostBody,
             handleSubmit,
+            postErrors,
 }) => {
 
   return (
    <main className='NewPost'>
-    <h2 style={{color: 'green', textAlign: 'center'}}>Create New Post</h2>
+    <h2 className='successMsg'>Create New Post</h2>
     <form className='newPostForm' onSubmit={handleSubmit}>
         <label htmlFor='newPostTitle'>Post Title</label>
         <input
@@ -28,7 +29,7 @@ const NewPost = ({
         value={ postBody }
         onChange={ (e) => setPostBody(e.target.value) }
         />
-
+      { postErrors && <h5 className='errorMsg'>Error: ${ postErrors }</h5>}
         <button type='submit'>
             Create Post
         </button>
@@ -38,3 +39,4 @@ const NewPost = ({
 }
 
 export default NewPost
+

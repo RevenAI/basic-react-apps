@@ -199,10 +199,9 @@ body {
   font-size: 1rem;
   cursor: pointer;
 }
-
-.NotFound h2, .PostPage h2, 
-.NotFound p, .PostPage p {
-  margin-bottom: 1rem;
+ 
+.NotFound p, .PostPage p, .NewPost p {
+  margin-top: 1rem;
 }
 
 .PostPage button {
@@ -210,14 +209,32 @@ body {
   min-width: 48px;
   border-radius: 0.25rem;
   padding: 0.5rem;
+  margin: 0.5rem;
   font-size: 1rem;
-  background-color: red;
   color: #fff;
   cursor: pointer;
 }
 
+.deleteButton {
+  background-color: red;
+}
+
+.editButton {
+  background-color: rgb(97, 17, 107);
+}
+
 .statusMsg {
   margin-top: 2rem;
+}
+
+.errorMsg {
+  color: red;
+  text-align: center;
+}
+
+.successMsg {
+  color: rgb(94, 255, 0);
+  text-align: center;
 }
 
 @media only screen and (min-width: 610px) {

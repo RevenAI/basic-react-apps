@@ -1,0 +1,132 @@
+{
+  "app-settings": [
+    {
+      "title": "Blog Arena",
+      "id": "9f3e"
+    },
+    {
+      "app-name": "Real Blogger",
+      "id": "7909"
+    },
+    {
+      "isActive": true,
+      "id": "eb1e"
+    }
+  ],
+  "posts": [
+    {
+      "id": "4",
+      "title": "Exploring Node.js for Server-Side Development",
+      "datetime": "2025-01-13T08:15:00Z",
+      "body": "Node.js opens up endless possibilities for server-side development with its event-driven architecture. It's fast, scalable, and great for real-time applications."
+    },
+    {
+      "id": "5",
+      "title": "The Importance of UI/UX Design in Web Development",
+      "datetime": "2025-01-12T11:00:00Z",
+      "body": "Great UI/UX design isn't just pretty—it’s functional. A seamless user experience leads to higher engagement and better retention."
+    },
+    {
+      "id": "6",
+      "title": "Handling Asynchronous Code in JavaScript",
+      "datetime": "2025-01-11T16:30:00Z",
+      "body": "Dealing with asynchronous code can be tricky. Promises and async/await are your best friends when managing tasks that don't block the main thread."
+    },
+    {
+      "id": "7",
+      "title": "Why You Should Learn Web Accessibility",
+      "datetime": "2025-01-10T12:45:00Z",
+      "body": "Web accessibility ensures your site is usable by people with disabilities. It’s not just ethical—it's often required by law."
+    },
+    {
+      "id": "8",
+      "title": "Tips for Effective Collaboration in Remote Teams",
+      "datetime": "2025-01-09T13:00:00Z",
+      "body": "In remote work, communication is key. Use the right tools and maintain a consistent schedule to stay on track and keep productivity high."
+    },
+    {
+      "id": "9",
+      "title": "How to Stay Motivated While Learning to Code",
+      "datetime": "2025-01-08T17:00:00Z",
+      "body": "Learning to code can be frustrating, but remember: every bug you fix is progress. Celebrate the small wins to keep your motivation high."
+    },
+    {
+      "id": "10",
+      "title": "Exploring RESTful APIs for Beginners",
+      "datetime": "2025-01-07T15:00:00Z",
+      "body": "RESTful APIs make communication between systems seamless. Understanding their architecture can significantly improve how you build web services."
+    },
+    {
+      "id": "11",
+      "title": "Mastering Version Control with Git",
+      "datetime": "2025-01-06T14:15:00Z",
+      "body": "Git allows developers to manage code changes effectively. Learn branching and merging for smoother team collaborations and code management."
+    },
+    {
+      "id": "12",
+      "title": "Top JavaScript Frameworks to Learn in 2025",
+      "datetime": "2025-01-05T09:30:00Z",
+      "body": "2025 is the year to master modern JavaScript frameworks like React, Vue, and Svelte. Choose one that fits your project needs and boost your productivity."
+    },
+    {
+      "id": "13",
+      "title": "The Future of Front-End Development",
+      "datetime": "2025-01-04T13:00:00Z",
+      "body": "As web technologies evolve, front-end development is becoming more powerful with features like WebAssembly, server-side rendering, and better build tools."
+    },
+    {
+      "id": "14",
+      "title": "Building Scalable Applications with Microservices",
+      "datetime": "2025-01-03T12:45:00Z",
+      "body": "Microservices help break down complex applications into smaller, manageable pieces. Learn how to scale your app while maintaining flexibility and performance."
+    },
+    {
+      "id": "15",
+      "title": "How to Optimize Your Web App for Speed",
+      "datetime": "2025-01-02T10:00:00Z",
+      "body": "Website speed matters. Implement lazy loading, optimize images, and reduce JavaScript to keep your web app running smoothly for users."
+    },
+    {
+      "id": "16",
+      "title": "Understanding the Basics of Cloud Computing",
+      "datetime": "2025-01-01T08:30:00Z",
+      "body": "Cloud computing offers scalable and cost-effective infrastructure. Learn the basics to deploy and manage applications on platforms like AWS and Azure."
+    },
+    {
+      "id": "17",
+      "title": "Why Testing Matters in Software Development",
+      "datetime": "2024-12-31T15:00:00Z",
+      "body": "Automated testing can catch bugs early, saving time and money in the long run. Don't skip testing—your future self will thank you."
+    },
+    {
+      "id": "18",
+      "title": "How to Get Started with Webpack",
+      "datetime": "2024-12-30T14:00:00Z",
+      "body": "Webpack is a powerful bundler that helps optimize your front-end assets. Learn the fundamentals to improve your development workflow."
+    },
+    {
+      "id": "19",
+      "title": "",
+      "body": "",
+      "datetime": "2025-01-18T14:05:10.623Z"
+    },
+    {
+      "id": "20",
+      "title": "Java Programming Language",
+      "body": "Java Programming Language is the forever mobile application language...",
+      "datetime": "2025-01-18T14:23:31.986Z"
+    },
+    {
+      "id": "21",
+      "title": "",
+      "body": "",
+      "datetime": "2025-01-18T14:00:26.156Z"
+    },
+    {
+      "id": "3",
+      "title": "JavaScript; The Language for the Web",
+      "body": "We are progrsmmersWe are progrsmmersWe are progrsmmersWe are progrsmmersWe are progrsmmers",
+      "datetime": "2025-01-19T03:17:06.614Z"
+    }
+  ]
+}
