@@ -24,8 +24,8 @@ function App() {
   const [editTitle, setEditTitle] = useState("");
   const [editBody, setEditBody] = useState("");
   const [contactEmail, setContactEmail] = useState("");
-  const [postOkMessage, setPostOkMessage] = useState("");
-  const [editOkMessage, setEditOkMessage] = useState("");
+  const [postOkMessage, setPostOkMessage] = useState(null);
+  const [editOkMessage, setEditOkMessage] = useState(null);
   const [postErrors, setPostErrors] = useState(null);
   const [settingsErrors, setSettingsErrors] = useState(null);
   const [isPostLoading, setIsPostLoading] = useState(true);
@@ -46,31 +46,39 @@ function App() {
   };
 
   const clearSetData = (actionFunction, limitTime) => {
-    if (limitTime !== 'number') throw new Error('Limit time must be a valid numeric number');
+    const validTime = parseInt(limitTime);
+    if (isNaN(validTime)) throw new Error('Limit time must be a valid numeric number');
     const timeoutId = setTimeout(() => {
       actionFunction(null);
-    }, limitTime);
+    }, validTime);
   
     return timeoutId;
   };  
 
-  const fetchData = async (url, setData, setErr, setLoading, source) => {
+  const fetchData = async (url, setData, setErr, setLoading, source) => {  
     try {
       const response = await api.get(url, { cancelToken: source.token });
       setData(response.data);
       setErr(null);
     } catch (err) {
-      catchErr(err, setErr);
+      if (axios.isCancel(err)) {
+        setErr(`Request canceled: ${err.message}`);
+      } else if (err.response) {
+        setErr(err.response.data.message || "An error occurred");
+      } else {
+        setErr(err.message || "Network error occurred");
+      }  
     } finally {
       setLoading(false);
     }
   };
 
-  useEffect(() => {
+useEffect(() => {
     const source = axios.CancelToken.source();
     fetchData("/posts", setPosts, setPostErrors, setIsPostLoading, source);
 
     return () => {
+      console.log("Cleanup: Cancelling post fetched request.");
       source.cancel("Operation canceled.");
     };
   }, []);
@@ -88,11 +96,7 @@ function App() {
     e.preventDefault();
   
     let id = posts.length > 0 ? parseInt(posts[posts.length - 1].id, 10) + 1 : 1;
-  
-    while (posts.find((post) => post.id.toString() === id.toString())) {
-      id += 1; 
-    }
-  
+
     const createdPost = {
       id: id.toString(),
       title: postTitle,
@@ -107,7 +111,7 @@ function App() {
       setPostTitle("");
       setPostBody("");
       navigate(`/post/${id}`);
-      clearSetData(setPostOkMessage, 6000);
+      clearSetData(setPostOkMessage, 3000);
     } catch (err) {
       catchErr(err, setPostErrors);
     } finally {
@@ -127,7 +131,7 @@ function App() {
       setEditTitle("");
       setEditBody("");
       navigate(`/post/${id}`);
-      clearSetData(setEditOkMessage, 6000);
+      clearSetData(setEditOkMessage, 3000);
     } catch (err) {
       catchErr(err, setEditErrors);
     }
@@ -136,10 +140,11 @@ function App() {
   const handleDelete = async (id) => {
     try {
       await api.delete(`/posts/${id}`);
+      const deletedPost = posts.find((p)=>p.id.toString()===id.toString());
       setPosts((prevPosts) => prevPosts.filter((post) => post.id.toString() !== id.toString()));
-      setDeleteMsg(`Post with ID ${id} has been successfully deleted.`);
+      setDeleteMsg(`Post with title: ${ deletedPost.title } has been successfully deleted.`);
       navigate('/');
-      clearSetData(setDeleteMsg, 6000);
+      clearSetData(setDeleteMsg, 3000);
     } catch (err) {
       catchErr(err, setDeleteErrors);
     }

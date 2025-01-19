@@ -7,7 +7,8 @@ const Home = ({ posts, deleteMsg }) => {
       {posts.length ? (
         <Feed posts={posts} />
       ) : (
-        <h2>No post to display.</h2>
+        //testing
+        <h2>No post to display.</h2>  
       )}
     </main>
   );

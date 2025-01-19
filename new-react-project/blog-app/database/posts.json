@@ -15,12 +15,6 @@
   ],
   "posts": [
     {
-      "id": "4",
-      "title": "Exploring Node.js for Server-Side Development",
-      "datetime": "2025-01-13T08:15:00Z",
-      "body": "Node.js opens up endless possibilities for server-side development with its event-driven architecture. It's fast, scalable, and great for real-time applications."
-    },
-    {
       "id": "5",
       "title": "The Importance of UI/UX Design in Web Development",
       "datetime": "2025-01-12T11:00:00Z",
@@ -94,39 +88,15 @@
     },
     {
       "id": "17",
-      "title": "Why Testing Matters in Software Development",
-      "datetime": "2024-12-31T15:00:00Z",
-      "body": "Automated testing can catch bugs early, saving time and money in the long run. Don't skip testing—your future self will thank you."
+      "title": "Goal: Why Testing Matters in Software Development",
+      "body": "Automated testing can catch bugs early, saving time and money in the long run. Don't skip testing—your future self will thank you.",
+      "datetime": "2025-01-19T11:06:13.767Z"
     },
     {
       "id": "18",
-      "title": "How to Get Started with Webpack",
-      "datetime": "2024-12-30T14:00:00Z",
-      "body": "Webpack is a powerful bundler that helps optimize your front-end assets. Learn the fundamentals to improve your development workflow."
-    },
-    {
-      "id": "19",
-      "title": "",
-      "body": "",
-      "datetime": "2025-01-18T14:05:10.623Z"
-    },
-    {
-      "id": "20",
-      "title": "Java Programming Language",
-      "body": "Java Programming Language is the forever mobile application language...",
-      "datetime": "2025-01-18T14:23:31.986Z"
-    },
-    {
-      "id": "21",
-      "title": "",
-      "body": "",
-      "datetime": "2025-01-18T14:00:26.156Z"
-    },
-    {
-      "id": "3",
-      "title": "JavaScript; The Language for the Web",
-      "body": "We are progrsmmersWe are progrsmmersWe are progrsmmersWe are progrsmmersWe are progrsmmers",
-      "datetime": "2025-01-19T03:17:06.614Z"
+      "title": "Python for mobile app development",
+      "body": "More for us to learn",
+      "datetime": "2025-01-19T11:09:09.532Z"
     }
   ]
 }
