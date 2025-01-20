@@ -1,17 +1,17 @@
-import { useContext, useEffect, useState } from "react"
-import { Link, useNavigate, useParams } from 'react-router-dom';
-import DataContext from "../contex/DataContext";
-import { catchErr, clearSetData } from "../utils/helpers";
-import api from "../apiRequest/apiRequest";
+import { useEffect } from "react"
+import { Link, useParams } from 'react-router-dom';
 
-const EditPost = () => {
-    const [editBody, setEditBody] = useState("");
-    const [editOkMessage, setEditOkMessage] = useState(null);
-    const [editTitle, setEditTitle] = useState("");
-    const [editErrors, setEditErrors] = useState(null);
-   
-    const navigate = useNavigate();
-    const { posts, setPosts } = useContext(DataContext);
+const EditPost = ({ 
+    posts,
+    editTitle,
+    setEditTitle,
+    editBody,
+    setEditBody,
+    handleEdit,
+    editErrors,
+    editOkMessage,
+  }) => {
+ 
     const { id } = useParams();
     const post = posts.find((post) => post.id.toString() === id.toString());
     const errStyling = { color: 'red', textAlign: 'center' };
@@ -22,26 +22,6 @@ const EditPost = () => {
             setEditBody(post.body);
         }
     }, [post, setEditTitle, setEditBody]);
-
-    const handleEdit = async (id) => {
-        const editedPost = { id, title: editTitle, body: editBody, datetime: new Date().toISOString() };
-    
-        try {
-          const response = await api.put(`/posts/${id}`, editedPost);
-          setPosts((prevPosts) =>
-            prevPosts.map((post) => (post.id.toString() === id.toString() ? { ...post, ...response.data } : post))
-          );
-          setEditOkMessage(response.data.message);
-          setEditTitle("");
-          setEditBody("");
-          navigate(`/post/${id}`);
-          clearSetData(setEditOkMessage, 3000);
-        } catch (err) {
-          catchErr(err, setEditErrors);
-        }
-      };
-
-
 
     if (!post) {
         return <>

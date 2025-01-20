@@ -1,14 +1,6 @@
-import { useParams, Link, useNavigate } from "react-router";
-import api from "../apiRequest/apiRequest";
-import { useContext, useState } from "react";
-import DataContext from "../contex/DataContext";
-import { catchErr, clearSetData } from "../utils/helpers";
+import { useParams, Link } from "react-router";
 
-const PostPage = () => {
-  const [deleteErrors, setDeleteErrors] = useState(null);
-
-  const { posts, setPosts, postOkMessage, setDeleteMsg } = useContext(DataContext);
-  const navigate = useNavigate();
+const PostPage = ({ posts, handleDelete, postOkMessage, deleteErrors }) => {
   const { id } = useParams();
  
   const post = posts.find((post) => post?.id?.toString() === id?.toString());
@@ -19,19 +11,6 @@ const PostPage = () => {
     <h3><Link to={ '/' }>Visit Our Homepage</Link></h3>
     </>
   }
-
-  const handleDelete = async (id) => {
-    try {
-      await api.delete(`/posts/${id}`);
-      const deletedPost = posts.find((p)=>p.id.toString()===id.toString());
-      setPosts((prevPosts) => prevPosts.filter((post) => post.id.toString() !== id.toString()));
-      setDeleteMsg(`Post with title: ${ deletedPost.title } has been successfully deleted.`);
-      navigate('/');
-      clearSetData(setDeleteMsg, 3000);
-    } catch (err) {
-      catchErr(err, setDeleteErrors);
-    }
-  };
 
    return (
       <main className='PostPage'>

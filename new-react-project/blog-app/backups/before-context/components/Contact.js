@@ -1,8 +1,5 @@
-import { useState } from "react";
 
-const Contact = () => {
-  const [contactEmail, setContactEmail] = useState("");
-
+const Contact = ({ contactEmail, setContactEmail, handleContactForm }) => {
   const contactStyle = {
     container: {
       textAlign: 'center',
@@ -50,13 +47,6 @@ const Contact = () => {
     },
     buttonHover: {
       backgroundColor: '#2980b9',
-    }
-  };
-
-  const handleContactForm = (e) => {
-    e.preventDefault();
-    if (contactEmail) {
-      alert(`Complaint from "${contactEmail}" has been recorded. We will reach out as soon as possible.`);
     }
   };
 

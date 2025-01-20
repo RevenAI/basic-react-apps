@@ -15,34 +15,10 @@
   ],
   "posts": [
     {
-      "id": "5",
-      "title": "The Importance of UI/UX Design in Web Development",
-      "datetime": "2025-01-12T11:00:00Z",
-      "body": "Great UI/UX design isn't just pretty—it’s functional. A seamless user experience leads to higher engagement and better retention."
-    },
-    {
-      "id": "6",
-      "title": "Handling Asynchronous Code in JavaScript",
-      "datetime": "2025-01-11T16:30:00Z",
-      "body": "Dealing with asynchronous code can be tricky. Promises and async/await are your best friends when managing tasks that don't block the main thread."
-    },
-    {
-      "id": "7",
-      "title": "Why You Should Learn Web Accessibility",
-      "datetime": "2025-01-10T12:45:00Z",
-      "body": "Web accessibility ensures your site is usable by people with disabilities. It’s not just ethical—it's often required by law."
-    },
-    {
       "id": "8",
       "title": "Tips for Effective Collaboration in Remote Teams",
       "datetime": "2025-01-09T13:00:00Z",
       "body": "In remote work, communication is key. Use the right tools and maintain a consistent schedule to stay on track and keep productivity high."
-    },
-    {
-      "id": "9",
-      "title": "How to Stay Motivated While Learning to Code",
-      "datetime": "2025-01-08T17:00:00Z",
-      "body": "Learning to code can be frustrating, but remember: every bug you fix is progress. Celebrate the small wins to keep your motivation high."
     },
     {
       "id": "10",
@@ -82,21 +58,15 @@
     },
     {
       "id": "16",
-      "title": "Understanding the Basics of Cloud Computing",
-      "datetime": "2025-01-01T08:30:00Z",
-      "body": "Cloud computing offers scalable and cost-effective infrastructure. Learn the basics to deploy and manage applications on platforms like AWS and Azure."
+      "title": "JS: Understanding the Basics of Cloud Computing",
+      "body": "JavaScript: Cloud computing offers scalable and cost-effective infrastructure. Learn the basics to deploy and manage applications on platforms like AWS and Azure.",
+      "datetime": "2025-01-20T22:14:08.422Z"
     },
     {
       "id": "17",
-      "title": "Goal: Why Testing Matters in Software Development",
-      "body": "Automated testing can catch bugs early, saving time and money in the long run. Don't skip testing—your future self will thank you.",
-      "datetime": "2025-01-19T11:06:13.767Z"
-    },
-    {
-      "id": "18",
       "title": "Python for mobile app development",
-      "body": "More for us to learn",
-      "datetime": "2025-01-19T11:09:09.532Z"
+      "body": "Python for mobile app development",
+      "datetime": "2025-01-20T22:40:47.813Z"
     }
   ]
 }
