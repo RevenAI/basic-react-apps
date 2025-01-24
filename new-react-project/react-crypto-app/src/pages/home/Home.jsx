@@ -126,8 +126,8 @@ const Home = () => {
               backgroundColor: "#1a1a1a",
               padding: "10px",
               borderRadius: "5px",
-            }}
-          >
+            }}>
+
             <div className="control" style={{ flexGrow: 1, marginRight: "10px" }}>
               <input
                 className="input is-medium"
@@ -168,74 +168,81 @@ const Home = () => {
         </div>
       </div>
 
-    <section style={{ borderRadius: "23px", padding: "10px", maxWidth: "100%", margin: "0 auto", overflowX: "auto" }}>
-      <div className="crypto-table" style={{ padding: "20px", marginTop: "20px", overflowX: "auto" }}>
-        <table
-          className="table is-striped is-hoverable"
-          style={{
-            backgroundColor: "#2c2f36",
-            borderRadius: "10px",
-            width: "100%",
-            minWidth: "500px", 
-            borderCollapse: "collapse",
-            color: "#fff", 
-            boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)", 
-          }}
-        >
-          <thead>
-            <tr style={{ backgroundColor: "#00b4cc", color: "#fff", textAlign: "center", fontSize: "16px" }}>
-              <th>Rank</th>
-              <th>Coins</th>
-              <th>Price</th>
-              <th>24H Change</th>
-              <th>Market Cap</th>
-            </tr>
-          </thead>
-          <tbody>
-            {
-              coinToDisplay.slice(0, 15).map((coin, index) => (
-                <tr
-                  key={index}
-                  style={{
-                    backgroundColor: index % 2 === 0 ? "#353b48" : "#444c56", 
-                    transition: "background-color 0.3s",
-                    color: "#fff",
-                    fontSize: "14px",
-                    borderBottom: "1px solid #333",
-                  }}
-                  className="hover-row"
-                >
-                  <td style={{ textAlign: "center", padding: "12px", color: "#00b4cc" }}>{coin.market_cap_rank}</td>
-                  <td style={{ textAlign: "center", padding: "12px" }}>
-                    <Link to={`/coin/${coin.id}`} style={{ cursor: "pointer" }}>
-                      <img 
-                        src={coin.image} 
-                        alt={coin.name} 
-                        style={{ width: "30px", height: "30px", objectFit: "contain", marginBottom: "5px" }} 
-                      />
-                      <p style={{ marginTop: "5px", fontSize: "12px", color: "#fff", cursor: "pointer" }}>
-                        {`${coin.name} - ${coin.symbol}`}
-                      </p>
-                    </Link>
-                  </td>
-                  <td style={{ textAlign: "center", padding: "12px", color: "#fff" }}>
-                    {currency.symbol} {coin.current_price.toLocaleString()}
-                  </td>
-                  <td style={{ textAlign: "center", padding: "12px" }}>
-                    <span style={{ color: coin.price_change_percentage_24h >= 0 ? "#27ae60" : "#e74c3c" }}>
-                      {Math.floor(coin.price_change_percentage_24h * 100) / 100}%
-                    </span>
-                  </td>
-                  <td style={{ textAlign: "center", padding: "12px", color: "#fff" }}>
-                    {currency.symbol} {coin.market_cap.toLocaleString()}
-                  </td>
-                </tr>
-              ))
-            }
-          </tbody>
-        </table>
-      </div>
-    </section>
+    
+
+<section style={{ borderRadius: "23px", padding: "10px", maxWidth: "100%", margin: "0 auto", overflowX: "auto" }}>
+  <div className="crypto-table" style={{ padding: "20px", marginTop: "20px", overflowX: "auto" }}>
+    <div
+      style={{
+        display: "grid",
+        gridTemplateColumns: "repeat(5, 1fr)",
+        gap: "10px",
+        backgroundColor: "#00b4cc",
+        color: "#fff",
+        padding: "15px",
+        borderRadius: "8px",
+        fontSize: "16px",
+        fontWeight: "bold",
+        textAlign: "center",
+      }}
+    >
+      <p>Rank</p>
+      <p>Coins</p>
+      <p>Price</p>
+      <p>24H Change</p>
+      <p>Market Cap</p>
+    </div>
+
+    {coinToDisplay.slice(0, 15).map((coin, index) => (
+      <Link
+        key={index}
+        to={`/coin/${coin.id}`}
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(5, 1fr)",
+          gap: "10px",
+          backgroundColor: index % 2 === 0 ? "#353b48" : "#444c56",
+          padding: "15px",
+          borderRadius: "8px",
+          color: "#fff",
+          textDecoration: "none",
+          transition: "background-color 0.3s",
+        }}
+      >
+        <div style={{ textAlign: "center" }}>
+          <p style={{ color: "#00b4cc" }}>{coin.market_cap_rank}</p>
+        </div>
+        <div style={{ textAlign: "center" }}>
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "10px" }}>
+            <img
+              src={coin.image}
+              alt={coin.name}
+              style={{ width: "30px", height: "30px", objectFit: "contain" }}
+            />
+            <p style={{ color: "#fff" }}>
+              {`${coin.name} (${coin.symbol.toUpperCase()})`}
+            </p>
+          </div>
+        </div>
+        <div style={{ textAlign: "center" }}>
+          <p>{currency.symbol} {coin.current_price.toLocaleString()}</p>
+        </div>
+        <div style={{ textAlign: "center" }}>
+          <p
+            style={{ color: coin.price_change_percentage_24h >= 0 ? "#27ae60" : "#e74c3c" }}
+          >
+            {Math.floor(coin.price_change_percentage_24h * 100) / 100}%
+          </p>
+        </div>
+        <div style={{ textAlign: "center" }}>
+          <p>{currency.symbol} {coin.market_cap.toLocaleString()}</p>
+        </div>
+      </Link>
+    ))}
+  </div>
+</section>
+
+
    </section>
   );
 };

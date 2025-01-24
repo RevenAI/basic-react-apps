@@ -1,16 +1,53 @@
 import { useContext, useEffect, useState } from "react";
 import CoinContext from "../../context/CoinContext";
 import { getCoinsData, setCurrencyType } from "../../utils/Helpers";
+import { Link } from 'react-router-dom';
 
 const Home = () => {
-  const { setCurrency, coins, currency } = useContext(CoinContext);
-
+  const { setCurrency, coins, currency, catchedErrors } = useContext(CoinContext);
   const [coinToDisplay, setCoinToDisplay] = useState([]);
+  const [searchInput, setSearchInput] = useState("");
+  const [searchErr, setSearchErr] = useState("");
+  
+  useEffect(() => {
+    setCoinToDisplay(coins);
+  }, [coins]);
 
-  useEffect(() => (
-    setCoinToDisplay(coins)
-  ), [coins]);
+  const searchInputHandler = (e) => {
+    const searchedInput = e.target.value
+    setSearchInput(searchedInput);
+    if (searchedInput === "") {
+      setCoinToDisplay(coins);
+      setSearchErr("");
+    }
+  }
 
+  const searchHandler = (e) => {
+    e.preventDefault(); 
+  
+    if (!searchInput.trim()) {
+      if (catchedErrors) {
+        setSearchErr(catchedErrors)
+        return;
+      } else {
+        setSearchErr("Search input is empty");
+        return; 
+      } 
+    }
+  
+    const filteredCoins = coins.filter((coin) =>
+      coin.name.toLowerCase().includes(searchInput.toLowerCase())
+    );
+  
+    setCoinToDisplay(filteredCoins);
+    setSearchErr("");
+  
+    if (filteredCoins.length === 0) {
+      setSearchErr("No coins found matching the search input");
+      return;
+    }
+  };
+  
   const setCurrencyHandler = (e) => {
     const coinData = getCoinsData();
 
@@ -28,8 +65,7 @@ const Home = () => {
   };  
 
   return (
-    <section className="hero is-fullheight" style={{ backgroundColor: "#000" }}onChange={ setCurrencyHandler }>
-    { /* Currency selector */ }
+    <section className="hero is-fullheight" style={{ backgroundColor: "#000" }} onChange={ setCurrencyHandler }>
       <div className="currency-selector" style={{ textAlign: "right", padding: "20px", color: "#fff" }}>
         <h3 className="is-size-5" style={{ color: "#00d1b2" }}>Currency Selector</h3>
         <select
@@ -64,16 +100,23 @@ const Home = () => {
         </select>
       </div>
 
-      { /* Site heading and currency search box */ }
       <div className="hero-body has-text-centered">
         <div className="container">
           <h1 className="title is-size-1 has-text-weight-bold" style={{ color: "#00d1b2" }}>
             Crypto Riches Market
           </h1>
           <p className="subtitle is-size-5" style={{ color: "#fff" }}>
-            Hello, welcome to Nigerias number one and most reliable crypto market.
+            {"Hello, welcome to Nigeria's number one and most reliable crypto market."}
           </p>
+
+          <div
+            className="has-text-success has-text-centered"
+            style={{ backgroundColor: "transparent" }}>
+            <h3>{searchErr}</h3>
+          </div>
+
           <form
+            onSubmit={ searchHandler }
             className="mt-5"
             style={{
               maxWidth: "500px",
@@ -83,20 +126,28 @@ const Home = () => {
               backgroundColor: "#1a1a1a",
               padding: "10px",
               borderRadius: "5px",
-            }}
-          >
+            }}>
+
             <div className="control" style={{ flexGrow: 1, marginRight: "10px" }}>
               <input
                 className="input is-medium"
                 type="text"
                 placeholder="Search crypto..."
+                value={searchInput}
+                list="coinlists"
                 style={{
                   backgroundColor: "#000",
                   border: "1px solid #00d1b2",
                   color: "#fff",
                   padding: "10px",
                 }}
+                onChange={ searchInputHandler }
               />
+
+          <datalist id="coinlists">
+            { coins.map((coin, index) => (<option key={index} value={coin.name} /> )) }
+          </datalist>
+
             </div>
             <div className="control">
               <button
@@ -117,43 +168,94 @@ const Home = () => {
         </div>
       </div>
 
-          {/* Table to show the crypto datails */}
-    <div className="crypto-table" style={{ padding: "20px", marginTop: "20px" }}>
-      <table
-        className="table is-striped is-hoverable is-fullwidth"
-        style={{
-          backgroundColor: "#1a1a1a",
-          borderRadius: "8px",
-          overflow: "hidden",
-        }}
-      >
-        <thead>
-          <tr style={{ backgroundColor: "#00d1b2" }}>
-            <th style={{ color: "#fff", textAlign: "center" }}>Rank</th>
-            <th style={{ color: "#fff", textAlign: "center" }}>Coins</th>
-            <th style={{ color: "#fff", textAlign: "center" }}>Price</th>
-            <th style={{ color: "#fff", textAlign: "center" }}>24H Change</th>
-            <th style={{ color: "#fff", textAlign: "center" }}>Market Cap</th>
-          </tr>
-        </thead>
-        <tbody>
-          {
-            coinToDisplay.slice(0, 15).map((coin, index) => (
-              <li className="" key={index}>{coin.market_cap_rank}</li>
-              <div>
-                <img src={ coin.image } alt={ coin.name } />
-                <p>{ `${ coin.name } - ${ coin.symbol }` }</p>
-              </div>
-              <p>{currency.symbol} {coin.current_price.toLocaleString()}</p>
-              <p>{ Math.floor(price_change_percentage_24h*100)/100 }</p>
-              <p>{currency.symbol} {coin.market_cap.toLocaleString()}</p>
-            ))
-          }
-        </tbody>
-      </table>
-    </div>
+    <section style={{ borderRadius: "23px", padding: "10px", maxWidth: "100%", margin: "0 auto", overflowX: "auto" }}>
+      <div className="crypto-table" style={{ padding: "20px", marginTop: "20px", overflowX: "auto" }}>
+        <table
+          className="table is-striped is-hoverable"
+          style={{
+            backgroundColor: "#2c2f36",
+            borderRadius: "10px",
+            width: "100%",
+            minWidth: "500px", 
+            borderCollapse: "collapse",
+            color: "#fff", 
+            boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)", 
+          }}
+        >
+          <thead>
+            <tr style={{ backgroundColor: "#00b4cc", color: "#fff", textAlign: "center", fontSize: "16px" }}>
+              <th>Rank</th>
+              <th>Coins</th>
+              <th>Price</th>
+              <th>24H Change</th>
+              <th>Market Cap</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              coinToDisplay.slice(0, 15).map((coin, index) => (
+                <tr
+                  key={index}
+                  style={{
+                    backgroundColor: index % 2 === 0 ? "#353b48" : "#444c56", 
+                    transition: "background-color 0.3s",
+                    color: "#fff",
+                    fontSize: "14px",
+                    borderBottom: "1px solid #333",
+                  }}
+                  className="hover-row"
+                >
+                  <td style={{ textAlign: "center", padding: "12px", color: "#00b4cc" }}>{coin.market_cap_rank}</td>
+                  <td style={{ textAlign: "center", padding: "12px" }}>
+                    <Link to={`/coin/${coin.id}`} style={{ cursor: "pointer" }}>
+                      <img 
+                        src={coin.image} 
+                        alt={coin.name} 
+                        style={{ width: "30px", height: "30px", objectFit: "contain", marginBottom: "5px" }} 
+                      />
+                      <p style={{ marginTop: "5px", fontSize: "12px", color: "#fff", cursor: "pointer" }}>
+                        {`${coin.name} - ${coin.symbol}`}
+                      </p>
+                    </Link>
+                  </td>
+                  <td style={{ textAlign: "center", padding: "12px", color: "#fff" }}>
+                    {currency.symbol} {coin.current_price.toLocaleString()}
+                  </td>
+                  <td style={{ textAlign: "center", padding: "12px" }}>
+                    <span style={{ color: coin.price_change_percentage_24h >= 0 ? "#27ae60" : "#e74c3c" }}>
+                      {Math.floor(coin.price_change_percentage_24h * 100) / 100}%
+                    </span>
+                  </td>
+                  <td style={{ textAlign: "center", padding: "12px", color: "#fff" }}>
+                    {currency.symbol} {coin.market_cap.toLocaleString()}
+                  </td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
     </section>
+   </section>
   );
 };
 
 export default Home;
+
+
+
+
+{/*       <section className="container">
+        const currentCurrency = ((e)=>)
+      <div>
+        <h3>Current Fiat Currency</h3>
+        <div className="currency-symbol-container">
+          <span className="currency-symbol">
+            {currentCoin[1]} 
+          </span>
+          <span className="coin-name">
+            {coinToDisplay.name} 
+          </span>
+        </div>
+      </div>
+    </section> */}
