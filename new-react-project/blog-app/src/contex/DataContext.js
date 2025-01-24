@@ -11,7 +11,7 @@ export const DataProvider = ({ children }) => {
     const [search, setSearch] = useState("");
     const [deleteMsg, setDeleteMsg] = useState("");
     const [searchResults, setSearchResults] = useState([]);
-    const [postOkMessage, setPostOkMessage] = useState(null); 
+    const [postOkMessage, setPostOkMessage] = useState(null);
     const [postErrors, setPostErrors] = useState(null);
     const [settingsErrors, setSettingsErrors] = useState(null);
     const [isPostLoading, setIsPostLoading] = useState(true);
@@ -45,7 +45,6 @@ export const DataProvider = ({ children }) => {
     );
     setSearchResults(filteredResults.reverse());
   }, [search, posts]);
-
 
    return <DataContext.Provider value={{
     settingsErrors, width, settings, isSettingsLoading,

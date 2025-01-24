@@ -1,1 +1,1 @@
-Folders and files in this directory are versions written before the app is refactore to use the useContex hook. This means they as follow "props drilling" pattern to pass on data and values to the children components.
+Folders and files in this directory are versions written before the app is refactored to use the useContex hook. This means they as follow "props drilling" pattern to pass on data and values to the children components.
