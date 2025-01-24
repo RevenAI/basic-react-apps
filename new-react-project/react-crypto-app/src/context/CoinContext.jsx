@@ -25,7 +25,7 @@ export const CoinProvider = ({ children }) => {
     try {
       const res = await fetch(coinAPI, options);
       if (!res.ok) {
-        setCatchedErrors("Failed to fetch coins");
+        setCatchedErrors("Failed to fetch coins. Check your network.");
         return;
       }
       const data = await res.json();

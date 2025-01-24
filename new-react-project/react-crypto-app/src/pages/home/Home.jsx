@@ -2,7 +2,6 @@ import { useContext, useEffect, useState } from "react";
 import CoinContext from "../../context/CoinContext";
 import { getCoinsData, setCurrencyType } from "../../utils/Helpers";
 import { Link } from 'react-router-dom';
-//import "./Home.css";
 
 const Home = () => {
   const { setCurrency, coins, currency, catchedErrors } = useContext(CoinContext);
@@ -107,7 +106,7 @@ const Home = () => {
             Crypto Riches Market
           </h1>
           <p className="subtitle is-size-5" style={{ color: "#fff" }}>
-            Hello, welcome to Nigerias number one and most reliable crypto market.
+            {"Hello, welcome to Nigeria's number one and most reliable crypto market."}
           </p>
 
           <div
@@ -169,7 +168,7 @@ const Home = () => {
         </div>
       </div>
 
-    <section style={{ padding: "10px", maxWidth: "100%", margin: "0 auto", overflowX: "auto" }}>
+    <section style={{ borderRadius: "23px", padding: "10px", maxWidth: "100%", margin: "0 auto", overflowX: "auto" }}>
       <div className="crypto-table" style={{ padding: "20px", marginTop: "20px", overflowX: "auto" }}>
         <table
           className="table is-striped is-hoverable"
